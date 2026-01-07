@@ -4,7 +4,7 @@ VisionAI is an intelligent image management and retrieval system designed to tra
 
 ## 🚀 About VisionAI
 
-![pipeline](images/pipeline.png)
+![images/pipeline.png](https://github.com/owl-lilith/VisionAI/blob/main/images/pipeline.png)
 
 VisionAI acts as a smart gallery that understands the "what," "where," and "who" of your photos. It uses a multi-modal approach to index images based on visual features, detected objects, text, and environmental context. 
 
@@ -25,7 +25,7 @@ VisionAI acts as a smart gallery that understands the "what," "where," and "who"
 
 ## 🖥️ Interfaces
 
-![home_page](images/home_page.png)
+![images/home_page.png](https://github.com/owl-lilith/VisionAI/blob/main/images/home_page.png)
 
 The user interface is built with Flutter, providing a seamless experience for browsing and searching through large image databases.
 
