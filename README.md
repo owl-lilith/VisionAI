@@ -1,56 +1,122 @@
-# Front-End
+Here is an expanded and more professional README file for your **VisionAI** project, incorporating details from your code and the graduation report.
 
-#### /front-end/lib/controller/
-have the codes for connecting with the AI python backend, using BLoC state management
+---
 
-#### /front-end/lib/data/
-have the theme data and models
+# VisionAI: Context-Aware Image Retrieval and Intelligent Editing
 
-#### /front-end/lib/presentation/
-have the Interfaces for the project
+VisionAI is an intelligent image management and retrieval system designed to transform how users interact with their personal galleries. By leveraging deep learning, the system moves beyond simple file storage to provide context-aware searching, automatic organization, and AI-powered image editing. 
 
-### /front-end/main.dart
-initialize the User Interface
+## 🚀 About VisionAI
 
-# AI-End
+![pipeline](images/pipeline.png)
 
-#### /ai-end/album/
-have the code for clustering images into categories (put similar images in the same albums)
+VisionAI acts as a smart gallery that understands the "what," "where," and "who" of your photos. It uses a multi-modal approach to index images based on visual features, detected objects, text, and environmental context. 
 
-#### /ai-end/data mining/
-mining albums to merge or drop unreasonable albums using EDA methods and Machine Learning Algorithms for classify new images to its matching album
+### Key Features:
 
-#### /ai-end/editor/
-have the filters code (for applying filters to image - useful for photographer)
+* 
+**Contextual Search:** Find images using natural language descriptions (e.g., "birthday party with family" or "documents about AI"). 
 
-#### /ai-end/home/
-have the methods for clustering images depending on (background class - faces - dominated colors - objects - context - text (OCR))
 
-#### /ai-end/sources/
-have the output result from the codes in the rest of the /ai-end/ files
+* 
+**Automatic Album Clustering:** Images are automatically grouped into logical albums based on similarity in objects, backgrounds, and time. 
 
-> * have the following data:
-> images database: `image_database.json`
-> 
-> background classifier data: `faiss_background_features_index.idx, image_background_pair.json`
-> 
-> context classifier data: `faiss_context_features_index.idx`
-> 
-> faces classifier data: `faiss_faces_features_index.idx`
-> 
-> objects classifier data: `faiss_objects_features_index.idx`
-> 
-> similar images classifier data: `faiss_similar_features_index.idx, image_features.npy`
-> 
-> text OCR classifier data: `docs_n_boks.json, faiss_text_features_index.idx`
-> 
-> albums classifier data: `albums.csv, albums_data.json, cluster_data.csv, cluster_ids.npy`
-> 
-filters data: `home_page_filters_option.json`
 
-#### /ai-end/main.py
-have all the algorithms from the rest /ai-end/ folders to connect with the UI throughout FastAPI
+* 
+**Intelligent Editing:** Professional-grade filters including "Pure Skin" and brightness/contrast adjustments tailored to image content. 
 
-#### /ai-end/scrap_images.ipynb
-code for scraping images from the web using crawler
+
+* 
+**OCR Integration:** Search for images containing specific text, such as book titles or notes. 
+
+
+
+## 🖥️ Interfaces
+
+![home_page](images/home_page.png)
+
+The user interface is built with Flutter, providing a seamless experience for browsing and searching through large image databases.
+
+## 📊 Explaining the Dataset
+
+The system is tested on a robust dataset designed to simulate a real-world user gallery. 
+
+* 
+**Size:** Over 6,100 images. 
+
+
+* 
+**Metadata Fields:** Each image is enriched with 13 data points, including: 
+
+
+* **Captions:** Generated descriptions of the scene.
+* **Faces:** Detected face labels and counts.
+* **Objects:** Multi-label object detection (e.g., "cake," "dining table," "fork").
+* **Background Class:** Environmental categorization (e.g., "bakery," "indoor," "park").
+* **Color Palette:** Dominant RGB values for color-based filtering.
+* **Text (OCR):** Extracted text for document and sign identification.
+
+
+* 
+**Categories:** Images are mapped into broad categories like "Food & Drinks," "Tools & Utensils," "Sports," and "Indoor/Outdoor" scenes. 
+
+
+
+## 📂 Journey Through the Folders and Files
+
+### Front-End (Flutter)
+
+The mobile application handles user interaction and communicates with the AI services.
+
+* **`/front-end/lib/controller/`**: Manages API communication with the Python backend using the **BLoC (Business Logic Component)** state management pattern.
+* **`/front-end/lib/data/`**: Defines data models for images/albums and global theme data.
+* **`/front-end/lib/presentation/`**: Contains the UI layers, including the search interface, gallery views, and the image editor.
+* **`/front-end/main.dart`**: The entry point that initializes the app and user interface.
+
+### AI-End (Python & FastAPI)
+
+The core "intelligence" of the project, responsible for computer vision tasks and data mining.
+
+* 
+**`/ai-end/album/`**: Contains logic for **K-Means Clustering** to group similar images into automated albums. 
+
+
+* 
+**`/ai-end/data_mining/`**: Uses Exploratory Data Analysis (EDA) and ML algorithms (like **LightGBM** and **RandomForest**) to refine clusters and classify new images into existing albums. 
+
+
+* 
+**`/ai-end/editor/`**: Implements computer vision filters using **OpenCV** and **PyTorch**, such as skin smoothing and lighting enhancements. 
+
+
+* 
+**`/ai-end/home/`**: The engine for feature extraction, utilizing: 
+
+
+* **VGG16/ViT:** For visual feature and background classification.
+* **DeepFace:** For facial recognition and labeling.
+* **BLIP/CLIP:** For image captioning and text-to-image context matching.
+* **Tesseract OCR:** For text extraction from images.
+
+
+* **`/ai-end/sources/`**: Storage for processed data and indices:
+* 
+`image_database.json`: The central metadata repository. 
+
+
+* 
+`faiss_*.idx`: High-performance vector indices for rapid similarity searching. 
+
+
+* `albums_data.json`: Metadata defining the generated clusters.
+
+
+* 
+**`/ai-end/main.py`**: The **FastAPI** server that bridges the AI models with the Flutter front-end. 
+
+
+* 
+**`/ai-end/scrap_images.ipynb`**: A utility notebook for gathering training/testing data using web crawlers. 
+
+
 
