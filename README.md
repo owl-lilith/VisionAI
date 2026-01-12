@@ -2,6 +2,8 @@
 
 VisionAI is an intelligent image management and retrieval system designed to transform how users interact with their personal galleries. By leveraging deep learning, the system moves beyond simple file storage to provide context-aware searching, automatic organization, and AI-powered image editing. 
 
+**Note**: for more detailed information and full system understanding check the [presentation](Presentation.zip)
+
 ## 🚀 About VisionAI
 
 <p align="center">
